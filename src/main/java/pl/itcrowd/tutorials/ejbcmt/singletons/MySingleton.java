@@ -1,5 +1,8 @@
 package pl.itcrowd.tutorials.ejbcmt.singletons;
 
+import pl.itcrowd.tutorials.ejbcmt.services.FirstService;
+import pl.itcrowd.tutorials.ejbcmt.services.SecondService;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.*;
@@ -29,7 +32,6 @@ public class MySingleton {
     public MySingleton() {
     }
 
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     @PostConstruct
     public void onCreate(){
         LOGGER.info("TX "+registry.getTransactionKey().toString()+" status before:" + registry.getTransactionStatus());
